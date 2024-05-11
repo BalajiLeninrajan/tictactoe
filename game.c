@@ -16,8 +16,20 @@ int main(int argc, char const *argv[])
         printf("ERROR: INVALID INPUT");
         return 1;
     }
-    bool ai_turn = usr_player == X ? false : true;
+
     Board board = init_board();
+
+    bool ai_turn;
+    if (usr_player == X)
+    {
+        print_board(board);
+        ai_turn = false;
+    }
+    else
+    {
+        ai_turn = true;
+    }
+
     while (!terminal(board))
     {
         if (ai_turn)
@@ -98,13 +110,14 @@ Action get_usr_move(Board board)
 
 void print_board(Board board)
 {
-    printf("-|-1-|-2-|-3-|\n");
-    printf("1| %c | %c | %c |\n", PLR_TO_STR(board[0][0]), PLR_TO_STR(board[0][1]), PLR_TO_STR(board[0][2]));
-    printf("-|---|---|---|\n");
-    printf("2| %c | %c | %c |\n", PLR_TO_STR(board[1][0]), PLR_TO_STR(board[1][1]), PLR_TO_STR(board[1][2]));
-    printf("-|---|---|---|\n");
-    printf("3| %c | %c | %c |\n", PLR_TO_STR(board[2][0]), PLR_TO_STR(board[2][1]), PLR_TO_STR(board[2][2]));
-    printf("-|---|---|---|\n");
+    printf("   | 1 | 2 | 3 |\n");
+    printf("---|---|---|---|\n");
+    printf(" 1 | %c | %c | %c |\n", PLR_TO_STR(board[0][0]), PLR_TO_STR(board[0][1]), PLR_TO_STR(board[0][2]));
+    printf("---|---|---|---|\n");
+    printf(" 2 | %c | %c | %c |\n", PLR_TO_STR(board[1][0]), PLR_TO_STR(board[1][1]), PLR_TO_STR(board[1][2]));
+    printf("---|---|---|---|\n");
+    printf(" 3 | %c | %c | %c |\n", PLR_TO_STR(board[2][0]), PLR_TO_STR(board[2][1]), PLR_TO_STR(board[2][2]));
+    printf("---|---|---|---|\n");
 }
 
 void move(Board board, Action action)
