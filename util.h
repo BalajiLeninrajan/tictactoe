@@ -20,6 +20,6 @@ Player current_player(Board board);
 
 bool terminal(Board board);
 
-Player winner(Board Board);
+Player winner(Board board);
 
 void nuke_board(Board board);

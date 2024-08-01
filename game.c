@@ -1,6 +1,5 @@
 #include "ai.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 Player title_screen(void);
 Action get_usr_move(Board board);
